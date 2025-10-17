@@ -1,9 +1,3 @@
 name = "kronos-novels"
 pages_build_output_dir = "docs/.vitepress/dist"
 compatibility_date = "2024-01-01"
-
-[env.production]
-name = "kronos-novels-gk"
-routes = [
-  { pattern = "kronos-novels.pages.dev/api/*", zone_name = "kronos-novels.pages.dev" }
-]

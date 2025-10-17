@@ -7,5 +7,3 @@ pages_build_output_dir = "docs/.vitepress/dist"
 # Aktifkan fungsi backend di dalam direktori ini
 pages_functions_dir = "functions"
 
-[vars]
-UPLOADTHING_TOKEN = "eyJhcGlLZXkiOiJza19saXZlXzlhNjQ2MWFlYTZhNTkyYTQ5ZGVmMTAwZTZmYzBiNzdiZDE3NzVlMTY2M2U3MzIwYTU0NjI2MjdjOGU0MWE3MzciLCJhcHBJZCI6ImdrdzV5MHM0MmUiLCJyZWdpb25zIjpbInNlYTEiXX0="

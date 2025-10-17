@@ -10,11 +10,11 @@ build_settings:
   
 environment_variables:
   # GitHub OAuth for Decap CMS
-  GITHUB_CLIENT_ID: "your_github_oauth_client_id"
-  GITHUB_CLIENT_SECRET: "your_github_oauth_client_secret"
+  GITHUB_CLIENT_ID: "${GITHUB_CLIENT_ID}"
+  GITHUB_CLIENT_SECRET: "${GITHUB_CLIENT_SECRET}"
   
   # UploadThing
-  UPLOADTHING_TOKEN: "eyJhcGlLZXkiOiJza19saXZlXzlhNjQ2MWFlYTZhNTkyYTQ5ZGVmMTAwZTZmYzBiNzdiZDE3NzVlMTY2M2U3MzIwYTU0NjI2MjdjOGU0MWE3MzciLCJhcHBJZCI6ImdrdzV5MHM0MmUiLCJyZWdpb25zIjpbInNlYTEiXX0="
+  UPLOADTHING_TOKEN: "${UPLOADTHING_TOKEN}"
 
 functions:
   # Cloudflare Workers Functions are automatically deployed from /functions directory

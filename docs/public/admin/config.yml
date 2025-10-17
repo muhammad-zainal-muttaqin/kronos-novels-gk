@@ -2,7 +2,7 @@ backend:
   name: github
   repo: muhammad-zainal-muttaqin/kronos-novels
   branch: main
-  base_url: https://kronos-novels.pages.dev
+  base_url: /
   auth_endpoint: /api/oauth
 
 media_folder: "docs/public/uploads"

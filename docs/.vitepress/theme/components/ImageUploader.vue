@@ -11,10 +11,10 @@ const uploadConfig = {
     },
     illustration: {
         title: "Ilustrasi Chapter",
-        description: "PNG atau JPG - maksimal 5MB",
+        description: "PNG atau JPG - maksimal 4MB",
         endpoint: "chapterIllustration",
-        maxBytes: 5 * 1024 * 1024,
-        sizeLabel: "5MB",
+        maxBytes: 4 * 1024 * 1024,
+        sizeLabel: "4MB",
     },
 } as const;
 
@@ -90,18 +90,13 @@ const copyTimeouts: Record<UploadKind, number | undefined> = {
 
 onMounted(async () => {
     try {
-        const mod = await import("uploadthing/client");
-        const gen =
-            typeof mod.genUploader === "function"
-                ? mod.genUploader
-                : typeof mod.default?.genUploader === "function"
-                  ? mod.default.genUploader
-                  : null;
-        if (!gen) {
+        const { genUploader } = await import("uploadthing/client");
+
+        if (!genUploader) {
             throw new Error("genUploader tidak tersedia.");
         }
 
-        const client = gen({ url: uploadthingUrl });
+        const client = genUploader({ url: uploadthingUrl });
         if (typeof client === "function") {
             uploadFiles = client as UploadFn;
         } else if (client && typeof client.uploadFiles === "function") {

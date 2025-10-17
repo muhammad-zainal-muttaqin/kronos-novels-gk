@@ -1,5 +1,4 @@
 import { createUploadthing } from "uploadthing/server";
-import type { PagesFunction } from "@cloudflare/workers-types";
 
 interface Env {
   UPLOADTHING_TOKEN: string;
@@ -31,7 +30,7 @@ const uploadRouter = {
 
   chapterIllustration: f({
     image: {
-      maxFileSize: "5MB",
+      maxFileSize: "4MB",
       maxFileCount: 1,
     },
   })
@@ -46,7 +45,7 @@ const uploadRouter = {
   generalImage: f({
     image: {
       maxFileSize: "4MB",
-      maxFileCount: 5,
+      maxFileCount: 4,
     },
   })
     .middleware(async () => {
@@ -63,7 +62,13 @@ type UploadRouter = typeof uploadRouter;
 let cachedHandler: ((request: Request) => Promise<Response>) | null = null;
 let cachedToken: string | null = null;
 
-export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
+export const onRequest = async ({
+  request,
+  env,
+}: {
+  request: Request;
+  env: Env;
+}) => {
   // TEMPORARY HARDCODE FOR DEBUG - REVOKE AFTER TESTING
   const token =
     "eyJhcGlLZXkiOiJza19saXZlXzlhNjQ2MWFlYTZhNTkyYTQ5ZGVmMTAwZTZmYzBiNzdiZDE3NzVlMTY2M2U3MzIwYTU0NjI2MjdjOGU0MWE3MzciLCJhcHBJZCI6ImdrdzV5MHM0MmUiLCJyZWdpb25zIjpbInNlYTEiXX0=";

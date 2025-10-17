@@ -29,6 +29,9 @@
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     
     <script>
+      // Force latest config with cache-busting
+      CMS.init({ config: '/admin/config.yml?v=' + Date.now() });
+
       // Custom preview styles
       CMS.registerPreviewStyle("/admin/preview.css");
       

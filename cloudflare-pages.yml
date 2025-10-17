@@ -1,0 +1,34 @@
+# Cloudflare Pages Configuration
+# This file documents the settings for Cloudflare Pages dashboard
+
+project_name: kronos-novels
+
+build_settings:
+  build_command: npm run build
+  build_output_directory: docs/.vitepress/dist
+  root_directory: /
+  
+environment_variables:
+  # GitHub OAuth for Decap CMS
+  GITHUB_CLIENT_ID: "your_github_oauth_client_id"
+  GITHUB_CLIENT_SECRET: "your_github_oauth_client_secret"
+  
+  # UploadThing
+  UPLOADTHING_TOKEN: "eyJhcGlLZXkiOiJza19saXZlXzlhNjQ2MWFlYTZhNTkyYTQ5ZGVmMTAwZTZmYzBiNzdiZDE3NzVlMTY2M2U3MzIwYTU0NjI2MjdjOGU0MWE3MzciLCJhcHBJZCI6ImdrdzV5MHM0MmUiLCJyZWdpb25zIjpbInNlYTEiXX0="
+
+functions:
+  # Cloudflare Workers Functions are automatically deployed from /functions directory
+  - functions/api/oauth.ts
+  - functions/api/uploadthing.ts
+
+custom_domain:
+  # Add your custom domain here after deployment
+  # Example: kronos-novels.com
+  enabled: false
+  domain: ""
+
+preview_deployments:
+  enabled: true
+  # Preview URLs for pull requests
+
+production_branch: main

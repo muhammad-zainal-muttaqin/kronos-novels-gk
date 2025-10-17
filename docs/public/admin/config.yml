@@ -1,0 +1,78 @@
+backend:
+  name: github
+  repo: muhammad-zainal-muttaqin/kronos-novels
+  branch: main
+  base_url: https://kronos-novels.pages.dev
+  auth_endpoint: /api/oauth
+
+media_folder: "docs/public/uploads"
+public_folder: "/uploads"
+
+locale: "id"
+
+collections:
+  - name: "novels"
+    label: "Novel"
+    label_singular: "Novel"
+    folder: "docs/novels"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "novels/{{slug}}"
+    fields:
+      - { label: "Judul", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly name (contoh: novel-pertama)" }
+      - { label: "Penulis", name: "author", widget: "string" }
+      - { label: "Deskripsi", name: "description", widget: "text", required: false }
+      - { label: "Cover URL", name: "cover", widget: "string", required: false, hint: "Upload via UploadThing, paste URL di sini" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["ongoing", "completed", "hiatus"]
+        default: "ongoing"
+      - label: "Genre/Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "Contoh: Fantasy, Romance, Action"
+      - { label: "Tanggal Mulai", name: "date", widget: "datetime", required: false }
+      - { label: "Konten", name: "body", widget: "markdown", required: false, hint: "Sinopsis atau info tambahan" }
+
+  - name: "chapters"
+    label: "Chapter"
+    label_singular: "Chapter"
+    folder: "docs/novels"
+    create: true
+    slug: "{{novel_slug}}/chapters/{{chapter_number}}-{{slug}}"
+    preview_path: "novels/{{novel_slug}}/chapters/{{chapter_number}}-{{slug}}"
+    fields:
+      - { label: "Novel Slug", name: "novel_slug", widget: "string", hint: "Slug novel yang sesuai (contoh: novel-pertama)" }
+      - { label: "Nomor Chapter", name: "chapter_number", widget: "number", value_type: "int", min: 1 }
+      - { label: "Judul Chapter", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly name (contoh: pertemuan-pertama)" }
+      - { label: "Tanggal Publish", name: "date", widget: "datetime" }
+      - { label: "Ilustrasi URL", name: "illustration", widget: "string", required: false, hint: "Upload via UploadThing" }
+      - { label: "Konten Chapter", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Halaman"
+    files:
+      - label: "Beranda"
+        name: "home"
+        file: "docs/index.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "home" }
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Nama", name: "name", widget: "string" }
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Konten", name: "body", widget: "markdown", required: false }
+
+      - label: "Tentang"
+        name: "about"
+        file: "docs/about.md"
+        fields:
+          - { label: "Judul", name: "title", widget: "string" }
+          - { label: "Konten", name: "body", widget: "markdown" }

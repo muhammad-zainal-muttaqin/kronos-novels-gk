@@ -1,0 +1,40 @@
+{
+  "name": "kronos-novels",
+  "version": "1.0.0",
+  "description": "Kronos Novels - Perjalanan Cerita Tanpa Batas Waktu",
+  "type": "module",
+  "scripts": {
+    "build": "vitepress build docs",
+    "dev": "vitepress dev docs",
+    "preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "express": "latest",
+    "fs": "latest",
+    "h3": "latest",
+    "idb": "latest",
+    "lucide-react": "^0.454.0",
+    "markdown-it-mathjax3": "latest",
+    "next": "15.2.4",
+    "path": "latest",
+    "react": "^19",
+    "react-dom": "^19",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8.5",
+    "tailwindcss": "4.1.14",
+    "typescript": "^5",
+    "uploadthing": "^7.4.0",
+    "vitepress": "^1.5.0"
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Kronos Novels - Admin</title>
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+      
+      /* Custom Decap CMS styling */
+      :root {
+        --kn-primary: #a8d5ba;
+        --kn-primary-dark: #7fcba4;
+      }
+      
+      /* Override Decap CMS colors */
+      [data-slate-editor] {
+        min-height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    
+    <script>
+      // Custom preview styles
+      CMS.registerPreviewStyle("/admin/preview.css");
+      
+      // Custom preview template for novels
+      CMS.registerPreviewTemplate("novels", ({ entry, widgetFor }) => {
+        const data = entry.getIn(['data']).toJS();
+        return `
+          <div style="max-width: 800px; margin: 0 auto; padding: 2rem;">
+            <div style="display: flex; gap: 2rem; margin-bottom: 2rem;">
+              ${data.cover ? `<img src="${data.cover}" alt="${data.title}" style="width: 200px; height: 300px; object-fit: cover; border-radius: 8px;" />` : ''}
+              <div>
+                <h1 style="color: #2c3e50; margin-bottom: 0.5rem;">${data.title}</h1>
+                <p style="color: #7fcba4; font-size: 1.125rem; margin-bottom: 1rem;">oleh ${data.author}</p>
+                <span style="background: #a8d5ba; color: #2c3e50; padding: 0.25rem 0.75rem; border-radius: 16px; font-size: 0.875rem; font-weight: 600;">
+                  ${data.status === 'ongoing' ? 'Berlangsung' : data.status === 'completed' ? 'Selesai' : 'Hiatus'}
+                </span>
+                ${data.tags ? `
+                  <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    ${data.tags.map(tag => `<span style="background: #fffbf0; color: #2c3e50; padding: 0.25rem 0.75rem; border-radius: 16px; font-size: 0.75rem;">${tag}</span>`).join('')}
+                  </div>
+                ` : ''}
+              </div>
+            </div>
+            <div style="line-height: 1.8; color: #2c3e50;">
+              ${widgetFor('body')}
+            </div>
+          </div>
+        `;
+      });
+      
+      // Custom preview template for chapters
+      CMS.registerPreviewTemplate("chapters", ({ entry, widgetFor }) => {
+        const data = entry.getIn(['data']).toJS();
+        return `
+          <div style="max-width: 720px; margin: 0 auto; padding: 2rem;">
+            <div style="margin-bottom: 2rem;">
+              <span style="color: #a8d5ba; font-weight: 700; font-size: 0.875rem;">CHAPTER ${data.chapter_number}</span>
+              <h1 style="color: #2c3e50; margin-top: 0.5rem;">${data.title}</h1>
+              <p style="color: #7fcba4; font-size: 0.875rem;">${new Date(data.date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+            </div>
+            ${data.illustration ? `<img src="${data.illustration}" alt="Ilustrasi" style="width: 100%; border-radius: 8px; margin-bottom: 2rem;" />` : ''}
+            <div style="line-height: 1.8; font-size: 1.125rem; color: #2c3e50;">
+              ${widgetFor('body')}
+            </div>
+          </div>
+        `;
+      });
+      
+      console.log('[Kronos] Decap CMS initialized');
+    </script>
+  </body>
+</html>

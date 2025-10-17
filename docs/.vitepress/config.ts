@@ -45,7 +45,7 @@ export default defineConfig({
   lang: "id-ID",
 
   head: [
-    ["meta", { name: "theme-color", content: "#A8D5BA" }],
+    ["meta", { name: "theme-color", content: "#3eaf7c" }],
     [
       "meta",
       {

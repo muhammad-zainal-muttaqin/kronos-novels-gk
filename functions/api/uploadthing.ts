@@ -5,50 +5,53 @@ interface Env {
   UPLOADTHING_TOKEN: string
 }
 
-/**
- * UploadThing Handler for Cloudflare Workers
- * Handles file uploads for novel covers and chapter illustrations
- */
-
-const uploadthingHandler = createRouteHandler({
-  config: {
-    token: process.env.UPLOADTHING_TOKEN,
-  },
-  router: {
-    // Cover images for novels (max 2MB)
-    novelCover: {
-      image: {
-        maxFileSize: "2MB",
-        maxFileCount: 1,
-      },
-    },
-    // Illustrations for chapters (max 5MB)
-    chapterIllustration: {
-      image: {
-        maxFileSize: "5MB",
-        maxFileCount: 1,
-      },
-    },
-    // General images (max 4MB)
-    generalImage: {
-      image: {
-        maxFileSize: "4MB",
-        maxFileCount: 5,
-      },
+const router = {
+  novelCover: {
+    image: {
+      maxFileSize: "2MB",
+      maxFileCount: 1,
     },
   },
-})
+  chapterIllustration: {
+    image: {
+      maxFileSize: "5MB",
+      maxFileCount: 1,
+    },
+  },
+  generalImage: {
+    image: {
+      maxFileSize: "4MB",
+      maxFileCount: 5,
+    },
+  },
+}
 
-export const onRequest: PagesFunction<Env> = async (context) => {
-  const { request, env } = context
+let cachedToken: string | null = null
+let cachedHandler: ((request: Request) => Promise<Response>) | null = null
 
-  // Set UPLOADTHING_TOKEN from environment
-  if (env.UPLOADTHING_TOKEN) {
-    process.env.UPLOADTHING_TOKEN = env.UPLOADTHING_TOKEN
+export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
+  const token = env.UPLOADTHING_TOKEN
+
+  if (!token) {
+    console.error("[Kronos] Missing UPLOADTHING_TOKEN")
+    return new Response(JSON.stringify({ error: "Server misconfigured" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    })
+  }
+
+  if (!cachedHandler || cachedToken !== token) {
+    cachedHandler = createRouteHandler({
+      config: {
+        token,
+      },
+      router,
+    })
+    cachedToken = token
   }
 
   try {
-    const response = await uploadthingHandler(request)
+    const response = await cachedHandler(request)
     console.log("[Kronos] UploadThing request processed")
     return response
   } catch (error) {

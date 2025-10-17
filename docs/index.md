@@ -6,8 +6,8 @@ hero:
   text: Perjalanan Cerita Tanpa Batas Waktu
   tagline: Baca dengan Ritme Anda Sendiri
   image:
-    src: /logo.svg
-    alt: Kronos Novels Logo
+    src: /hero-image.webp
+    alt: Kronos Novels - Perjalanan Cerita Tanpa Batas Waktu
   actions:
     - theme: brand
       text: Jelajahi Novel
@@ -20,15 +20,15 @@ features:
   - icon: 📚
     title: Koleksi Novel Original
     details: Nikmati berbagai cerita original dari penulis berbakat dengan genre yang beragam.
-  
+
   - icon: 🔖
     title: Bookmark Otomatis
     details: Sistem bookmark pintar yang menyimpan posisi baca Anda secara otomatis di setiap chapter.
-  
+
   - icon: 🌙
     title: Dark Mode
     details: Baca dengan nyaman kapan saja dengan dukungan dark mode yang elegan.
-  
+
   - icon: ⚡
     title: Performa Cepat
     details: Pengalaman membaca yang super cepat dan responsif di semua perangkat.
@@ -47,7 +47,22 @@ features:
 }
 
 .VPImage.image-src {
-  max-width: 200px;
+  max-width: 400px;
   margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(62, 175, 124, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.VPImage.image-src:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 80px rgba(62, 175, 124, 0.3);
+}
+
+@media (max-width: 768px) {
+  .VPImage.image-src {
+    max-width: 100%;
+    border-radius: 16px;
+  }
 }
 </style>

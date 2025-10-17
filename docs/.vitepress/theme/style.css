@@ -4,246 +4,270 @@
  */
 
 :root {
-  --kn-primary: #3eaf7c;
-  --kn-primary-dark: #2c8f62;
-  --kn-secondary: #ffffff;
-  --kn-accent-dark: #2c3e50;
-  --kn-accent-gold: #d4af7a;
+    --kn-primary: #3eaf7c;
+    --kn-primary-dark: #2c8f62;
+    --kn-secondary: #ffffff;
+    --kn-accent-dark: #2c3e50;
+    --kn-accent-gold: #d4af7a;
 
-  --vp-c-brand-1: #3eaf7c;
-  --vp-c-brand-2: #36a06f;
-  --vp-c-brand-3: #2c8f62;
+    --vp-c-brand-1: #3eaf7c;
+    --vp-c-brand-2: #36a06f;
+    --vp-c-brand-3: #2c8f62;
 
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #3eaf7c 0%, #2c8f62 100%);
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: linear-gradient(
+        135deg,
+        #3eaf7c 0%,
+        #2c8f62 100%
+    );
 
-  --vp-button-brand-bg: #3eaf7c;
-  --vp-button-brand-hover-bg: #36a06f;
-  --vp-button-brand-active-bg: #2c8f62;
+    --vp-button-brand-bg: #3eaf7c;
+    --vp-button-brand-hover-bg: #36a06f;
+    --vp-button-brand-active-bg: #2c8f62;
 
-  --vp-c-bg: #ffffff;
-  --vp-c-bg-soft: #f6f6f7;
-  --vp-c-divider: #c2c2c4;
-  --vp-c-text-1: rgb(60 60 67);
-  --vp-c-text-2: rgba(60, 60, 67, 0.78);
+    --vp-c-bg: #ffffff;
+    --vp-c-bg-soft: #f6f6f7;
+    --vp-c-divider: #c2c2c4;
+    --vp-c-text-1: rgb(60 60 67);
+    --vp-c-text-2: rgba(60, 60, 67, 0.78);
 
-  --vp-c-tip-1: #25a55b;
-  --vp-c-warning-1: #fa541c;
-  --vp-c-danger-1: #cf1322;
+    --vp-c-tip-1: #25a55b;
+    --vp-c-warning-1: #fa541c;
+    --vp-c-danger-1: #cf1322;
 
-  --vp-font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    sans-serif;
-  --vp-font-family-mono: "Fira Code", "Courier New", monospace;
+    --vp-font-family-base:
+        "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, sans-serif;
+    --vp-font-family-mono: "Fira Code", "Courier New", monospace;
 }
 
 .dark {
-  --vp-c-bg: #1b1b1f;
-  --vp-c-bg-soft: #202127;
-  --vp-c-bg-mute: #23252b;
-  --vp-c-divider: #3c3f44;
+    --vp-c-bg: #1b1b1f;
+    --vp-c-bg-soft: #202127;
+    --vp-c-bg-mute: #23252b;
+    --vp-c-divider: #3c3f44;
 
-  --vp-c-brand-1: #3eaf7c;
-  --vp-c-brand-2: #36a06f;
-  --vp-c-brand-3: #2c8f62;
+    --vp-c-brand-1: #3eaf7c;
+    --vp-c-brand-2: #36a06f;
+    --vp-c-brand-3: #2c8f62;
 
-  --vp-c-text-1: rgb(235 235 245 / 86%);
-  --vp-c-text-2: rgba(235, 235, 245, 0.6);
+    --vp-c-text-1: rgb(235 235 245 / 86%);
+    --vp-c-text-2: rgba(235, 235, 245, 0.6);
+}
+
+/* Logo Styling */
+.VPNavBarTitle .logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.VPNavBarTitle .logo:hover {
+    transform: scale(1.1);
+}
+
+.VPImage.VPNavBarTitle .title {
+    font-weight: 700;
+    color: var(--vp-c-text-1);
+    margin-left: 0.5rem;
 }
 
 /* Custom Hero Section */
 .VPHero .name {
-  font-size: 4rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
 .VPHero .tagline {
-  font-size: 1.5rem;
-  color: var(--kn-accent-gold);
-  font-weight: 500;
-  margin-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--kn-accent-gold);
+    font-weight: 500;
+    margin-top: 1rem;
 }
 
 /* Novel Cards */
 .novel-card {
-  background: var(--vp-c-bg-soft);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+    background: var(--vp-c-bg-soft);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .novel-card:hover {
-  border-color: var(--kn-primary);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(168, 213, 186, 0.2);
+    border-color: var(--kn-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(168, 213, 186, 0.2);
 }
 
 .novel-card-cover {
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
 .novel-card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--vp-c-text-1);
+    margin-bottom: 0.5rem;
 }
 
 .novel-card-author {
-  font-size: 0.875rem;
-  color: var(--vp-c-text-2);
-  margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--vp-c-text-2);
+    margin-bottom: 0.75rem;
 }
 
 .novel-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
 }
 
 .novel-tag {
-  background: var(--kn-primary);
-  color: var(--kn-accent-dark);
-  padding: 0.25rem 0.75rem;
-  border-radius: 16px;
-  font-size: 0.75rem;
-  font-weight: 600;
+    background: var(--kn-primary);
+    color: var(--kn-accent-dark);
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.75rem;
+    font-weight: 600;
 }
 
 /* Chapter List */
 .chapter-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 2rem;
 }
 
 .chapter-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  background: var(--vp-c-bg-soft);
-  border-radius: 8px;
-  border-left: 4px solid var(--kn-primary);
-  transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--vp-c-bg-soft);
+    border-radius: 8px;
+    border-left: 4px solid var(--kn-primary);
+    transition: all 0.2s ease;
 }
 
 .chapter-item:hover {
-  background: var(--vp-c-bg-mute);
-  transform: translateX(4px);
+    background: var(--vp-c-bg-mute);
+    transform: translateX(4px);
 }
 
 .chapter-item.bookmarked {
-  border-left-color: var(--kn-accent-gold);
+    border-left-color: var(--kn-accent-gold);
 }
 
 .chapter-number {
-  font-weight: 700;
-  color: var(--kn-primary);
-  margin-right: 1rem;
+    font-weight: 700;
+    color: var(--kn-primary);
+    margin-right: 1rem;
 }
 
 .chapter-title {
-  flex: 1;
-  color: var(--vp-c-text-1);
+    flex: 1;
+    color: var(--vp-c-text-1);
 }
 
 .bookmark-badge {
-  background: var(--kn-accent-gold);
-  color: var(--kn-accent-dark);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
+    background: var(--kn-accent-gold);
+    color: var(--kn-accent-dark);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
 }
 
 /* Reading Experience */
 .vp-doc {
-  max-width: 720px;
-  line-height: 1.8;
-  font-size: 1.125rem;
+    max-width: 720px;
+    line-height: 1.8;
+    font-size: 1.125rem;
 }
 
 .vp-doc p {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 /* Bookmark Button */
 .bookmark-button {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--kn-primary);
-  color: var(--kn-accent-dark);
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(168, 213, 186, 0.4);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  z-index: 100;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--kn-primary);
+    color: var(--kn-accent-dark);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(168, 213, 186, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 100;
 }
 
 .bookmark-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(168, 213, 186, 0.6);
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(168, 213, 186, 0.6);
 }
 
 .bookmark-button.bookmarked {
-  background: var(--kn-accent-gold);
+    background: var(--kn-accent-gold);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .VPHero .name {
-    font-size: 2.5rem;
-  }
+    .VPHero .name {
+        font-size: 2.5rem;
+    }
 
-  .VPHero .tagline {
-    font-size: 1.125rem;
-  }
+    .VPHero .tagline {
+        font-size: 1.125rem;
+    }
 
-  .bookmark-button {
-    bottom: 1rem;
-    right: 1rem;
-    width: 48px;
-    height: 48px;
-  }
+    .bookmark-button {
+        bottom: 1rem;
+        right: 1rem;
+        width: 48px;
+        height: 48px;
+    }
 }
 
 /* Status Badge */
 .status-badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 16px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .status-ongoing {
-  background: #a8e6cf;
-  color: #1a5f3f;
+    background: #a8e6cf;
+    color: #1a5f3f;
 }
 
 .status-completed {
-  background: var(--kn-accent-gold);
-  color: var(--kn-accent-dark);
+    background: var(--kn-accent-gold);
+    color: var(--kn-accent-dark);
 }
 
 .status-hiatus {
-  background: #ffb6b9;
-  color: #8b0000;
+    background: #ffb6b9;
+    color: #8b0000;
 }

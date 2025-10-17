@@ -69,11 +69,7 @@ export const onRequest = async ({
   request: Request;
   env: Env;
 }) => {
-  // TEMPORARY HARDCODE FOR DEBUG - REVOKE AFTER TESTING
-  const token =
-    "eyJhcGlLZXkiOiJza19saXZlXzlhNjQ2MWFlYTZhNTkyYTQ5ZGVmMTAwZTZmYzBiNzdiZDE3NzVlMTY2M2U3MzIwYTU0NjI2MjdjOGU0MWE3MzciLCJhcHBJZCI6ImdrdzV5MHM0MmUiLCJyZWdpb25zIjpbInNlYTEiXX0=";
-
-  console.log("[Kronos] Using hardcoded token for debug");
+  const token = env.UPLOADTHING_TOKEN;
 
   if (!token) {
     console.error("[Kronos] Missing UPLOADTHING_TOKEN");

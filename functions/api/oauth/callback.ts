@@ -44,11 +44,12 @@ const successPage = (payload: string) => `<!DOCTYPE html>
     </main>
     <script>
       (function () {
-        const message = 'authorization:github:success:' + ${JSON.stringify(payload)};
+        const message = 'authorization:github:success:${payload}';
+        const origin = window.location.origin;
 
         function notifyParent() {
           if (!window.opener) return;
-          window.opener.postMessage(message, '*');
+          window.opener.postMessage(message, origin);
           window.close();
         }
 
@@ -85,7 +86,7 @@ export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
       return new Response(`OAuth error: ${tokenData.error}`, { status: 400 })
     }
 
-    const payload = JSON.stringify(tokenData)
+    const payload = JSON.stringify(tokenData).replace(/</g, "\\u003c")
 
     return new Response(successPage(payload), {
       headers: { "Content-Type": "text/html; charset=utf-8" },
@@ -95,3 +96,4 @@ export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
     return new Response("OAuth failed", { status: 500 })
   }
 }
+

@@ -1,5 +1,4 @@
 name = "kronos-novels-gk"
-account_id = "47ba3429085c087863776bdf3e78c21b"
 pages_build_output_dir = "docs/.vitepress/dist"
 compatibility_date = "2024-01-01"
 
@@ -8,8 +7,3 @@ name = "kronos-novels-gk"
 routes = [
   { pattern = "kronos-novels.pages.dev/api/*", zone_name = "kronos-novels.pages.dev" }
 ]
-
-# Environment variables (set via Cloudflare dashboard)
-# GITHUB_CLIENT_ID = "your_github_client_id"
-# GITHUB_CLIENT_SECRET = "your_github_client_secret"
-# UPLOADTHING_TOKEN = "eyJhcGlLZXkiOiJza19saXZlXzlhNjQ2MWFlYTZhNTkyYTQ5ZGVmMTAwZTZmYzBiNzdiZDE3NzVlMTY2M2U3MzIwYTU0NjI2MjdjOGU0MWE3MzciLCJhcHBJZCI6ImdrdzV5MHM0MmUiLCJyZWdpb25zIjpbInNlYTEiXX0="

@@ -98,7 +98,13 @@ export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
       return new Response(`OAuth error: ${tokenData.error}`, { status: 400 })
     }
 
-    const payload = JSON.stringify(tokenData).replace(/</g, "\\u003c")
+    const payload = JSON.stringify({
+      token: tokenData.access_token,
+      provider: "github",
+      accessToken: tokenData.access_token,
+      tokenType: tokenData.token_type,
+      scope: tokenData.scope,
+    }).replace(/</g, "\\u003c")
 
     return new Response(successPage(payload), {
       headers: { "Content-Type": "text/html; charset=utf-8" },

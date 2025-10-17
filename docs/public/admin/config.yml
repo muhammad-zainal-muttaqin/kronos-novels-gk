@@ -17,6 +17,7 @@ collections:
     folder: "docs/novels"
     create: true
     slug: "{{slug}}"
+    path: "{{slug}}/index"
     preview_path: "novels/{{slug}}"
     fields:
       - { label: "Judul", name: "title", widget: "string" }
@@ -42,7 +43,8 @@ collections:
     label_singular: "Chapter"
     folder: "docs/novels"
     create: true
-    slug: "{{novel_slug}}/chapters/{{chapter_number}}-{{slug}}"
+    slug: "{{chapter_number}}-{{slug}}"
+    path: "{{novel_slug}}/chapters/{{chapter_number}}-{{slug}}"
     preview_path: "novels/{{novel_slug}}/chapters/{{chapter_number}}-{{slug}}"
     fields:
       - { label: "Novel Slug", name: "novel_slug", widget: "string", hint: "Slug novel yang sesuai (contoh: novel-pertama)" }

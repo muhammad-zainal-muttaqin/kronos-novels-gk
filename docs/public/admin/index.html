@@ -26,7 +26,18 @@
     </style>
   </head>
   <body>
-    <script>window.CMS_MANUAL_INIT = true;</script>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+      window.CMS_CONFIG = {
+        backend: {
+          name: 'github',
+          repo: 'muhammad-zainal-muttaqin/kronos-novels',
+          branch: 'main',
+          base_url: '/',
+          auth_endpoint: '/api/oauth'
+        }
+      };
+    </script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     
     <script>

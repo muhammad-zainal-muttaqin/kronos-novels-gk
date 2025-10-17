@@ -1,5 +1,5 @@
 ---
-novel_slug: novel-pertama
+novel_slug: novel-test
 chapter_number: 1
 title: testing1
 slug: kisah-cinta

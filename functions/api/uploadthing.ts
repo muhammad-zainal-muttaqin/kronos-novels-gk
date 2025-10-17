@@ -62,14 +62,31 @@ export const onRequest: PagesFunction<Env> = async ({ request, env }) => {
   console.log(`[Kronos] Processing ${actionType} for slug: ${slug}`);
 
   try {
-    // Decode token (plain base64 JSON)
-    const tokenPayload = JSON.parse(atob(env.UPLOADTHING_TOKEN));
+    // TEMPORARY HARDCODE FOR DEBUG - REVOKE AFTER TESTING
+    const HARDCODED_TOKEN =
+      "eyJhcGlLZXkiOiJza19saXZlXzlhNjQ2MWFlYTZhNTkyYTQ5ZGVmMTAwZTZmYzBiNzdiZDE3NzVlMTY2M2U3MzIwYTU0NjI2MjdjOGU0MWE3MzciLCJhcHBJZCI6ImdrdzV5MHM0MmUiLCJyZWdpb25zIjpbInNlYTEiXX0=";
+
+    console.log("[Kronos] Using hardcoded token for debug");
+    const tokenPayload = JSON.parse(atob(HARDCODED_TOKEN));
+    console.log("[Kronos] Token decoded, appId:", tokenPayload.appId);
     const { apiKey, appId } = tokenPayload;
 
     if (!apiKey || !appId) {
-      console.error("[Kronos] Invalid token payload");
+      console.error(
+        "[Kronos] Invalid token payload, has apiKey:",
+        !!apiKey,
+        "has appId:",
+        !!appId,
+      );
       throw new Error("Invalid token");
     }
+
+    console.log(
+      "[Kronos] Using appId:",
+      appId,
+      "apiKey prefix:",
+      apiKey.substring(0, 10),
+    );
 
     const authHeader = { Authorization: `Bearer ${apiKey}` };
     const commonHeaders = {

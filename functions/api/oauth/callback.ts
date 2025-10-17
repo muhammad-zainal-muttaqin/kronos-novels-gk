@@ -44,17 +44,29 @@ const successPage = (payload: string) => `<!DOCTYPE html>
     </main>
     <script>
       (function () {
-        const message = 'authorization:github:success:${payload}';
         const origin = window.location.origin;
+        const payload = ${payload};
 
-        function notifyParent() {
-          if (!window.opener) return;
-          window.opener.postMessage(message, origin);
-          window.close();
+        if (!window.opener) {
+          console.error('Decap CMS OAuth: missing window.opener reference');
+          return;
         }
 
-        notifyParent();
-        setTimeout(notifyParent, 1000);
+        function handleMessage(event) {
+          if (event.origin !== origin || event.source !== window.opener) {
+            return;
+          }
+
+          if (event.data === 'authorizing:github') {
+            window.removeEventListener('message', handleMessage, false);
+            const message = 'authorization:github:success:' + JSON.stringify(payload);
+            window.opener.postMessage(message, origin);
+            window.close();
+          }
+        }
+
+        window.addEventListener('message', handleMessage, false);
+        window.opener.postMessage('authorizing:github', origin);
       })();
     </script>
   </body>

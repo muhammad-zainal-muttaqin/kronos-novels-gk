@@ -16,12 +16,20 @@ collections:
     label_singular: "Novel"
     folder: "docs/novels"
     create: true
-    slug: "{{slug}}"
-    path: "{{slug}}/index"
-    preview_path: "novels/{{slug}}"
+    identifier_field: "slug"
+    summary: "{{title}} ({{slug}})"
+    slug: "{{fields.slug}}"
+    path: "{{fields.slug}}/index"
+    preview_path: "novels/{{fields.slug}}"
     fields:
       - { label: "Judul", name: "title", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly name (contoh: novel-pertama)" }
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        pattern:
+          - "^[a-z0-9-]+$"
+          - "Gunakan huruf kecil, angka, dan tanda minus saja (contoh: novel-pertama)"
+        hint: "Slug akan menjadi URL (contoh: novel-pertama)"
       - { label: "Penulis", name: "author", widget: "string" }
       - { label: "Deskripsi", name: "description", widget: "text", required: false }
       - { label: "Cover URL", name: "cover", widget: "string", required: false, hint: "Upload via UploadThing, paste URL di sini" }
@@ -43,14 +51,28 @@ collections:
     label_singular: "Chapter"
     folder: "docs/novels"
     create: true
-    slug: "{{chapter_number}}-{{slug}}"
-    path: "{{novel_slug}}/chapters/{{chapter_number}}-{{slug}}"
-    preview_path: "novels/{{novel_slug}}/chapters/{{chapter_number}}-{{slug}}"
+    summary: "{{novel_slug}} | Chapter {{chapter_number}}: {{title}}"
+    slug: "{{fields.chapter_number}}-{{fields.slug}}"
+    path: "{{fields.novel_slug}}/chapters/{{fields.chapter_number}}-{{fields.slug}}"
+    preview_path: "novels/{{fields.novel_slug}}/chapters/{{fields.chapter_number}}-{{fields.slug}}"
     fields:
-      - { label: "Novel Slug", name: "novel_slug", widget: "string", hint: "Slug novel yang sesuai (contoh: novel-pertama)" }
+      - label: "Novel"
+        name: "novel_slug"
+        widget: "relation"
+        collection: "novels"
+        search_fields: ["title", "slug"]
+        value_field: "slug"
+        display_fields: ["title"]
+        hint: "Pilih novel yang sesuai, slug akan otomatis dipakai untuk folder"
       - { label: "Nomor Chapter", name: "chapter_number", widget: "number", value_type: "int", min: 1 }
       - { label: "Judul Chapter", name: "title", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly name (contoh: pertemuan-pertama)" }
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        pattern:
+          - "^[a-z0-9-]+$"
+          - "Gunakan huruf kecil, angka, dan tanda minus saja (contoh: pertemuan-pertama)"
+        hint: "Dipakai di URL setelah nomor chapter (contoh: pertemuan-pertama)"
       - { label: "Tanggal Publish", name: "date", widget: "datetime" }
       - { label: "Ilustrasi URL", name: "illustration", widget: "string", required: false, hint: "Upload via UploadThing" }
       - { label: "Konten Chapter", name: "body", widget: "markdown" }

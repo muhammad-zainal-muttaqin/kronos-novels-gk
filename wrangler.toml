@@ -1,4 +1,4 @@
-name = "kronos-novels-gk"
+name = "kronos-novels"
 pages_build_output_dir = "docs/.vitepress/dist"
 compatibility_date = "2024-01-01"
 

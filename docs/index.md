@@ -51,12 +51,6 @@ features:
   margin: 0 auto;
   border-radius: 24px;
   box-shadow: 0 20px 60px rgba(62, 175, 124, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.VPImage.image-src:hover {
-  transform: scale(1.02);
-  box-shadow: 0 25px 80px rgba(62, 175, 124, 0.3);
 }
 
 @media (max-width: 768px) {

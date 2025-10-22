@@ -10,7 +10,7 @@
 
 Platform baca novel modern yang dibangun dengan teknologi terdepan untuk pengalaman membaca yang optimal.
 
-[**Demo Live**](https://kronos-novels.pages.dev) • [**Dokumentasi**](https://kronos-novels.pages.dev/docs) • [**Kontribusi**](CONTRIBUTING.md)
+[**Demo Live**](https://kronos-novels-gk.pages.dev/) • [**Dokumentasi**](https://kronos-novels-gk.pages.dev/docs) • [**Kontribusi**](CONTRIBUTING.md)
 
 </div>
 
@@ -125,16 +125,59 @@ graph LR
     D --> E[Publish]
 ```
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **VitePress** - SSG framework
-- **Vue 3** - UI framework
-- **Decap CMS** - Content management
-- **UploadThing** - Media storage
-- **IndexedDB** - Local bookmarks
-- **Cloudflare Pages** - Hosting
-- **Cloudflare Workers** - API functions
+<div align="center">
 
-## License
+### Frontend
+![VitePress](https://img.shields.io/badge/VitePress-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+### Backend & Services
+![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
+![UploadThing](https://img.shields.io/badge/UploadThing-000000?style=for-the-badge&logo=upload&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+
+### Database & Storage
+![IndexedDB](https://img.shields.io/badge/IndexedDB-FF6B35?style=for-the-badge&logo=database&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+</div>
+
+| Teknologi | Fungsi | Alasan Dipilih |
+|-----------|--------|----------------|
+| **VitePress** | Static Site Generator | Performance tinggi, SEO-friendly |
+| **Vue 3** | Frontend Framework | Reaktif, mudah dipelajari |
+| **Decap CMS** | Content Management | Git-based, tidak perlu database |
+| **UploadThing** | Media Storage | Upload mudah, CDN terintegrasi |
+| **IndexedDB** | Local Storage | Bookmark offline, fast access |
+| **Cloudflare Pages** | Hosting | Global CDN, auto-deploy |
+| **Cloudflare Workers** | Serverless Functions | OAuth handling, API endpoints |
+
+## 🤝 Contributing
+
+Kami menyambut kontribusi dari komunitas! Silakan baca [CONTRIBUTING.md](CONTRIBUTING.md) untuk panduan lengkap.
+
+### Quick Contribute
+1. Fork repository ini
+2. Buat branch fitur (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
+
+## 📄 License
 
 © 2025 Kronos Novels. All rights reserved.
+
+---
+
+<div align="center">
+
+**Dibuat dengan ❤️ untuk komunitas pembaca Indonesia**
+
+[![GitHub stars](https://img.shields.io/github/stars/muhammad-zainal-muttaqin/kronos-novels-gk?style=social)](https://github.com/muhammad-zainal-muttaqin/kronos-novels-gk/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/muhammad-zainal-muttaqin/kronos-novels-gk?style=social)](https://github.com/muhammad-zainal-muttaqin/kronos-novels-gk/network/members)
+
+</div>

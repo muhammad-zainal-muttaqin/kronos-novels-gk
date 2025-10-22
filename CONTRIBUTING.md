@@ -6,8 +6,8 @@ Terima kasih atas minat Anda untuk berkontribusi pada Kronos Novels!
 
 1. Clone repository:
 \`\`\`bash
-git clone https://github.com/muhammad-zainal-muttaqin/kronos-novels.git
-cd kronos-novels
+git clone https://github.com/muhammad-zainal-muttaqin/kronos-novels-gk.git
+cd kronos-novels-gk
 \`\`\`
 
 2. Install dependencies:

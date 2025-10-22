@@ -167,7 +167,7 @@ Jika ingin menggunakan custom domain:
 
 ## Support
 
-- GitHub Issues: [kronos-novels/issues](https://github.com/muhammad-zainal-muttaqin/kronos-novels/issues)
+- GitHub Issues: [kronos-novels-gk/issues](https://github.com/muhammad-zainal-muttaqin/kronos-novels-gk/issues)
 - Cloudflare Docs: [developers.cloudflare.com/pages](https://developers.cloudflare.com/pages)
 - VitePress Docs: [vitepress.dev](https://vitepress.dev)
 - Decap CMS Docs: [decapcms.org](https://decapcms.org)

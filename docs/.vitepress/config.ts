@@ -107,7 +107,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: "github",
-        link: "https://github.com/muhammad-zainal-muttaqin/kronos-novels",
+        link: "https://github.com/muhammad-zainal-muttaqin/kronos-novels-gk",
       },
     ],
 
